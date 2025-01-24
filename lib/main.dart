@@ -29,7 +29,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
-          scaffoldBackgroundColor: Color(0xffEFEFF0),
+          scaffoldBackgroundColor: const Color(0xffEFEFF0),
           textTheme: GoogleFonts.poppinsTextTheme()),
       home: FutureBuilder(
         future: DSession.getUser(),
@@ -37,7 +37,7 @@ class MyApp extends StatelessWidget {
           if (snapshot.connectionState == ConnectionState.waiting) {
             return const CircularProgressIndicator();
           }
-          if (snapshot.data == null) return Scaffold();
+          if (snapshot.data == null) return SplashScreen();
           return DiscoverPage();
         },
       ),
